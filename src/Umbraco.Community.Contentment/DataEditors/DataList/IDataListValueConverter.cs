@@ -4,14 +4,13 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 using System;
-using System.Collections.Generic;
 
 namespace Umbraco.Community.Contentment.DataEditors
 {
-    public interface IDataListSourceValueConverter : IDataListSource
+    public interface IDataListValueConverter : IContentmentEditorItem
     {
-        Type GetValueType(Dictionary<string, object> config);
+        Type GetValueType(DataListConfiguration config);
 
-        object ConvertValue(Type type, string value);
+        object ConvertValue(DataListConfiguration config, Type type, string value);
     }
 }

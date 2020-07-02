@@ -19,6 +19,7 @@ namespace Umbraco.Community.Contentment.DataEditors
         internal const string ListEditor = "listEditor";
         internal const string EditorConfig = "editorConfig";
         internal const string EditorView = "editorView";
+        internal const string ValueConverter = "valueConverter";
 
         private readonly ConfigurationEditorUtility _utility;
 
@@ -38,6 +39,7 @@ namespace Umbraco.Community.Contentment.DataEditors
 
             var dataSources = utility.GetConfigurationEditorModels<IDataListSource>();
             var listEditors = utility.GetConfigurationEditorModels<IDataListEditor>();
+            var valueConverters = utility.GetConfigurationEditorModels<IDataListValueConverter>();
 
             Fields.Add(
                 DataSource,
@@ -57,6 +59,16 @@ namespace Umbraco.Community.Contentment.DataEditors
                 new Dictionary<string, object>(defaultConfigEditorConfig)
                 {
                     { Constants.Conventions.ConfigurationFieldAliases.Items, listEditors }
+                });
+
+            Fields.Add(
+                ValueConverter,
+                "Value converter",
+                "<i>(Advanced)</i> Select and configure a value converter.<br><br>If no converter is configured, the returned value will be a default <code>string</code> value.",
+                configEditorViewPath,
+                new Dictionary<string, object>(defaultConfigEditorConfig)
+                {
+                    { Constants.Conventions.ConfigurationFieldAliases.Items, valueConverters }
                 });
         }
 

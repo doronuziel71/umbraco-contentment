@@ -15,7 +15,7 @@ using Umbraco.Web;
 
 namespace Umbraco.Community.Contentment.DataEditors
 {
-    public sealed class UmbracoContentDataListSource : IDataListSource, IDataListSourceValueConverter
+    public sealed class UmbracoContentDataListSource : IDataListSource
     {
         private readonly IContentTypeService _contentTypeService;
         private readonly IUmbracoContextAccessor _umbracoContextAccessor;
@@ -91,21 +91,6 @@ namespace Umbraco.Community.Contentment.DataEditors
                     Description = x.TemplateId > 0 ? x.Url : string.Empty,
                     Disabled = x.IsPublished() == false,
                 });
-        }
-
-        public Type GetValueType(Dictionary<string, object> config)
-        {
-            return typeof(IPublishedContent);
-        }
-
-        public object ConvertValue(Type type, string value)
-        {
-            if (type == typeof(IPublishedContent) && Udi.TryParse(value, out var udi))
-            {
-                return _umbracoContextAccessor.UmbracoContext.Content.GetById(udi);
-            }
-
-            return value.TryConvertTo(type).Result;
         }
     }
 }
