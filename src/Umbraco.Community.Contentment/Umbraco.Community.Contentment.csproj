@@ -306,6 +306,7 @@
     <Compile Include="Composing\ContentmentListItemCollectionBuilder.cs" />
     <Compile Include="DataEditors\ContentBlocks\ContentBlockPreviewModel.cs" />
     <Compile Include="DataEditors\ContentBlocks\DisplayModes\ListDisplayMode.cs" />
+    <Compile Include="DataEditors\ContentBlocks\DisplayModes\CardsDisplayMode.cs" />
     <Compile Include="DataEditors\ContentBlocks\DisplayModes\StackDisplayMode.cs" />
     <Compile Include="DataEditors\ContentBlocks\IContentBlocksDisplayMode.cs" />
     <Compile Include="DataEditors\ContentPicker\ContentPickerDataEditor.cs" />
@@ -422,6 +423,7 @@
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.overlay.html" />
     <Content Include="DataEditors\ConfigurationEditor\configuration-editor.overlay.js" />
     <Content Include="DataEditors\ContentBlocks\content-blocks.blueprint.html" />
+    <Content Include="DataEditors\ContentBlocks\content-cards.html" />
     <Content Include="DataEditors\ContentPicker\content-source.html" />
     <Content Include="DataEditors\ContentPicker\content-source.js" />
     <Content Include="DataEditors\DataTable\data-table.html" />
